@@ -1,0 +1,144 @@
+/* Reset some default styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Press Start 2P', cursive;
+}
+
+/* Color Palette */
+:root {
+    --primary-bg: #2a1f1f; /* Darker Gray */
+    --secondary-bg: #050505; /* Almost Black */
+    --button-bg: #2a2020; /* White */
+    --button-hover-bg: #a3954e; /* Darker Blue for hover effect */
+    --text-color: #d7b5b5; /* White */
+    --choice-bg: #785c5c; /* White for image background */
+    --shadow-color: rgba(211, 177, 177, 0.634); /* Shadow color */
+    --message-bg: #b29595; /* White for Message box background */
+    --message-text: #0a0a0a; /* Darker Gray for Message box text color */
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    background-color: var(--primary-bg);
+    color: var(--text-color);
+}
+
+.heading {
+    background-color: var(--secondary-bg);
+    height: 5rem;
+    line-height: 5rem;
+    color:  #f3d1d1; /* Light Gray for text color */
+}
+
+.choices {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+    animation: fadeIn 1s ease-in-out; /* Fade-in animation */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.choice {
+    height: 120px;
+    width: 120px;
+    margin: 1rem;
+    overflow: hidden; /* Ensure images don't overflow */
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--shadow-color); /* Add a subtle shadow */
+    background-color: var(--choice-bg); /* Background color for images */
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.choice img {
+    height: 100%; /* Make the image fill the container */
+    width: 100%;
+    object-fit: contain; /* Maintain aspect ratio and fit inside the container */
+    border-radius: 50%;
+    transition: transform 0.3s ease; /* Add a smooth transition effect */
+}
+
+.choice:hover {
+    opacity: 0.7;
+    cursor: pointer;
+    background-color: var(--button-hover-bg);
+}
+
+.score-board {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    gap: 1rem;
+    justify-content: center;
+    animation: fadeIn 1s ease-in-out; /* Fade-in animation */
+}
+
+.msg-container {
+    margin-top: 2rem;
+    font-size: 30px;
+    padding: auto;
+    margin-left: 15vw;
+    margin-right: 15vw;
+    
+    height: 50px;
+}
+
+.score {
+    padding: 1rem;
+    border: 2px solid var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
+#message {
+    background-color: var(--message-bg);
+    color: var(--message-text);
+    font-size: 2rem;
+    padding: 2rem;
+    border-radius: 2rem;
+    margin-top: 1rem;
+    animation: fadeIn 1s ease-in-out; /* Fade-in animation */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
+@media (min-width: 768px) {
+    .choices {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .choice {
+        height: 150px;
+        width: 150px;
+    }
+
+    .choice:nth-child(3) {
+        order: 3;
+    }
+
+    .score-board {
+        flex-direction: row;
+    }
+
+    .msg-container {
+        margin-top: 3rem;
+    }
+    
+}
